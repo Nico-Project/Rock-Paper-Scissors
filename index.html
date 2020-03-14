@@ -1,12 +1,52 @@
 <html>
 <script>
     "use strict"
+    //Get a random value for the ai
     function computerPlay() {
-        let options = ["Rock","Paper","Scissors"];
+        let options = ["rock","paper","scissors"];
         let randomOption = options[Math.floor(Math.random()*options.length)]
-
-        console.log(randomOption);
+        return randomOption;
     }
-computerPlay();
+    //Assign the value to a variable, get the player's choice from a prompt msg
+ let computerSelection = computerPlay();
+ let playerInput = prompt("Choose your weapon");
+ //Make the input lowercase
+
+ function lowerInput() {
+     let playerSelection = playerInput.toLowerCase();
+     return playerSelection;
+ }
+let playerSelection=lowerInput();
+
+ function oneRound (computerSelection, playerSelection) {
+       
+    if (computerSelection===playerSelection) {
+       return "Tie";
+     }
+     else if (computerSelection==="rock" && playerSelection==="paper") {
+         return "Player wins!";
+     } 
+     else if ( computerSelection ==="rock" && playerSelection=== "scissors") {
+         return "Computer wins!";
+     }
+     else if ( computerSelection ==="paper" && playerSelection=== "scissors") {
+         return "Player wins!";
+     }
+     else if ( computerSelection ==="paper" && playerSelection=== "rock") {
+         return "Computer wins!";
+     }
+     else if ( computerSelection ==="scissors" && playerSelection=== "rock") {
+         return "Player wins!";
+     }
+     else if ( computerSelection ==="scissors" && playerSelection=== "paper") {
+         return "Computer wins!";
+     }
+
+
+ }
+
+ let result=oneRound(computerSelection, playerSelection);
+lowerInput();
+oneRound();
 </script>
 </html>
