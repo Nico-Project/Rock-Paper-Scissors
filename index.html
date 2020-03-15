@@ -1,52 +1,80 @@
 <html>
 <script>
     "use strict"
-    //Get a random value for the ai
     function computerPlay() {
         let options = ["rock","paper","scissors"];
         let randomOption = options[Math.floor(Math.random()*options.length)]
         return randomOption;
     }
-    //Assign the value to a variable, get the player's choice from a prompt msg
- let computerSelection = computerPlay();
- let playerInput = prompt("Choose your weapon");
- //Make the input lowercase
+    let computerScore=0
+    let playerScore=0
 
- function lowerInput() {
-     let playerSelection = playerInput.toLowerCase();
-     return playerSelection;
- }
-let playerSelection=lowerInput();
-
- function oneRound (computerSelection, playerSelection) {
-       
-    if (computerSelection===playerSelection) {
-       return "Tie";
+function oneRound (computerSelection, playerSelection) {    
+    
+    if (computerSelection === playerSelection) {
+       return "Tie!";
      }
      else if (computerSelection==="rock" && playerSelection==="paper") {
-         return "Player wins!";
+        playerScore++;
+         return "Paper beats Rock, You win!";
+         
      } 
-     else if ( computerSelection ==="rock" && playerSelection=== "scissors") {
-         return "Computer wins!";
+     else if (computerSelection ==="rock" && playerSelection=== "scissors") {
+        computerScore++;
+         return "Rock beats scissors, You lose!";
+         
      }
      else if ( computerSelection ==="paper" && playerSelection=== "scissors") {
-         return "Player wins!";
+        playerScore++;
+         return "Scissors beat paper, You win!";
+        
      }
      else if ( computerSelection ==="paper" && playerSelection=== "rock") {
-         return "Computer wins!";
+        computerScore++;
+         return "Paper beats rock, You lose!";
+        
      }
      else if ( computerSelection ==="scissors" && playerSelection=== "rock") {
-         return "Player wins!";
+        playerScore++;
+         return "Rock beats scissors, You win!";
+         
      }
      else if ( computerSelection ==="scissors" && playerSelection=== "paper") {
-         return "Computer wins!";
+        computerScore++;
+         return "Scissors beat paper, You lose!";
+         
+         }
      }
+    
+function game() {
+let playerSelection = prompt("Choose your weapon").toLowerCase();
+const computerSelection = computerPlay();
+console.log(oneRound(playerSelection, computerSelection));
+}
+function results() {
+console.log("Computer score:" + " " + computerScore + ", Player score:" + " " + playerScore);
+if (computerScore>playerScore) {
+    console.log ("You Lost. Shame upon your family.");
+}
+else if (computerScore===playerScore) {
+    console.log("What a waste of time. It's a tie!")
+}
+else {
+    console.log("Celebrate your victory with a sip of your favorite drink.")
+}
+}
 
 
- }
+for (let roundCounter=0; roundCounter<5;roundCounter++) {
+    console.log("Round " + roundCounter); 
+    game();
 
- let result=oneRound(computerSelection, playerSelection);
-lowerInput();
-oneRound();
+    }
+
+results()
+
+
+
+
 </script>
 </html>
