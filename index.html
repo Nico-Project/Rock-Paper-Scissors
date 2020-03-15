@@ -14,32 +14,32 @@ function oneRound (computerSelection, playerSelection) {
     if (computerSelection === playerSelection) {
        return "Tie!";
      }
-     else if (computerSelection==="rock" && playerSelection==="paper") {
+     else if ((computerSelection==="rock") && (playerSelection==="paper")) {
         playerScore++;
          return "Paper beats Rock, You win!";
          
      } 
-     else if (computerSelection ==="rock" && playerSelection=== "scissors") {
+     else if ((computerSelection ==="rock") && (playerSelection=== "scissors")) {
         computerScore++;
          return "Rock beats scissors, You lose!";
          
      }
-     else if ( computerSelection ==="paper" && playerSelection=== "scissors") {
+     else if (( computerSelection ==="paper") && (playerSelection=== "scissors")) {
         playerScore++;
          return "Scissors beat paper, You win!";
         
      }
-     else if ( computerSelection ==="paper" && playerSelection=== "rock") {
+     else if ((computerSelection ==="paper") && (playerSelection=== "rock")) {
         computerScore++;
          return "Paper beats rock, You lose!";
         
      }
-     else if ( computerSelection ==="scissors" && playerSelection=== "rock") {
+     else if ((computerSelection ==="scissors")&&(playerSelection=== "rock")) {
         playerScore++;
          return "Rock beats scissors, You win!";
          
      }
-     else if ( computerSelection ==="scissors" && playerSelection=== "paper") {
+     else if ((computerSelection ==="scissors") && (playerSelection=== "paper")) {
         computerScore++;
          return "Scissors beat paper, You lose!";
          
@@ -48,8 +48,8 @@ function oneRound (computerSelection, playerSelection) {
     
 function game() {
 let playerSelection = prompt("Choose your weapon").toLowerCase();
-const computerSelection = computerPlay();
-console.log(oneRound(playerSelection, computerSelection));
+let computerSelection = computerPlay();
+console.log(oneRound(computerSelection, playerSelection));
 }
 function results() {
 console.log("Computer score:" + " " + computerScore + ", Player score:" + " " + playerScore);
@@ -68,7 +68,6 @@ else {
 for (let roundCounter=0; roundCounter<5;roundCounter++) {
     console.log("Round " + roundCounter); 
     game();
-
     }
 
 results()
